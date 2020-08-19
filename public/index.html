@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Health Care</title>
+    <link rel="stylesheet" href="../app/include/css/index-style.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Element", "Density", { role: "style" } ],
+          ["Mar 2019", 8.94, "#b87333"],
+          ["Apr 2019", 10.49, "silver"],
+          ["May 2019", 19.30, "gold"],
+          ["June 2019", 21.45, "color: #e5e4e2"]
+        ]);
+  
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                         { calc: "stringify",
+                           sourceColumn: 1,
+                           type: "string",
+                           role: "annotation" },
+                         2]);
+  
+        var options = {
+          title: "Outpatients Vs. Inpatients Trend",
+          width: 500,
+          height: 200,
+          bar: {groupWidth: "95%"},
+          legend: { position: "none" },
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        chart.draw(view, options);
+    }
+    </script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Time', 'Patients'],
+            ['7 am',  50],
+            ['8 am',  20],
+            ['9 am',  100],
+            ['10 am',  150],
+            ['11 am',  70],
+            ['12 pm',  20]
+          ]);
+  
+          var options = {
+            title: 'Time Admitted',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+          };
+  
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  
+          chart.draw(data, options);
+        }
+      </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Inpatients', 'Outpatients'],
+          ['IP',     11],
+          ['OP',      2]
+        ]);
+
+        var options = {
+          title: 'Shown By Months',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     <script type="text/javascript">
+       google.charts.load("current", {packages:["corechart"]});
+       google.charts.setOnLoadCallback(drawChart);
+       function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+           ['Patients', 'Nos'],
+           ['Male',     10],
+           ['Female',      7]
+         ]);
+ 
+         var options = {
+           title: 'Patients By Gender',
+           pieHole: 0.4,
+         };
+ 
+         var chart = new google.visualization.PieChart(document.getElementById('donutchart2'));
+         chart.draw(data, options);
+       }
+     </script>
+       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <script type="text/javascript">
+         google.charts.load('current', {'packages':['corechart']});
+         google.charts.setOnLoadCallback(drawChart);
+   
+         function drawChart() {
+           var data = google.visualization.arrayToDataTable([
+             ['Year', 'Sales', 'Expenses'],
+             ['2004',  1000,      400],
+             ['2005',  1170,      460],
+             ['2006',  660,       1120],
+             ['2007',  1030,      540]
+           ]);
+   
+           var options = {
+             title: 'Company Performance',
+             curveType: 'function',
+             legend: { position: 'bottom' }
+           };
+   
+           var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+   
+           chart.draw(data, options);
+         }
+       </script>
+</head>
+<body>
+    <div class="logo">
+        <svg width="50" height="50" viewBox="0 0 324 262" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="145.311" y="261.361" width="261" height="73" transform="rotate(-90 145.311 261.361)" fill="#7E33DE"/>
+            <rect x="63" y="100" width="261" height="63" fill="#7E33DE"/>
+            <rect y="261" width="261" height="63" transform="rotate(-90 0 261)" fill="#65F1E9"/>
+        </svg>            
+        <h4>H - Care</h4>                      
+    </div>
+    <div class="search-bar">
+        <img src="../app/include/icons/search.svg" alt="seacrch-icon">
+        <input type="text" id="search-text" placeholder="Search..">
+    </div>
+    <div class="profile-tab">
+        <img src="../app/include/icons/notification.svg" alt="User's Image" >
+        <span>Sravan Kumar</span>
+    </div>
+    <div class="left-bar">
+        <input type="button" value="Register Patient +">
+        <div class="menu">
+            <div>
+                <img src="../app/include/icons/overview.svg" alt="overview-icon">
+                <label for="patients-btn">Patients</label>
+                <input type="radio" name="menu" id="patients-btn"hidden checked>
+            </div>
+            <div>
+                <img src="../app/include/icons/map.svg" alt="map-icon">
+                <label for="overview-btn">Overview</label>
+                <input type="radio" name="menu" id="overview-btn"hidden>
+            </div>
+            <div>
+                <img src="../app/include/icons/departments.svg" alt="departments-icon">
+                <label for="map-btn">Map</label>
+                <input type="radio" name="menu" id="map-btn"hidden>
+            </div>
+            <div>
+                <img src="../app/include/icons/doctors.svg" alt="doctors-icon">
+                <label for="departments-btn">Departments</label>
+                <input type="radio" name="menu" id="departments-btn"hidden>
+            </div>
+            <div>
+                <img src="../app/include/icons/doctors.svg" alt="history-icon">
+                <label for="doctors-btn">Doctors</label>
+                <input type="radio" name="menu" id="doctors-btn"hidden>
+            </div>
+            <div>
+                <img src="../app/include/icons/history.svg" alt="history-icon">
+                <label for="history-btn">History</label>
+                <input type="radio" name="menu" id="history-btn"hidden>
+            </div>
+        </div>
+        <div class="settings-btn">
+            <img src="../app/include/icons/settings.svg" alt="settings-icon" width="20" height="20" >
+            <label for="history-btn">Settings</label>
+            <input type="radio" name="menu" id="history-btn" hidden>
+        </div>
+        <div class="footer">
+            <img src="../app/include/icons/hospital-alt.svg" alt="Promo-image">
+            <h4>Get Mobile App</h4>
+            <div class="icons">
+                <img src="../app/include/icons/google-play.svg" alt="playstore-image"width="20" height="20">
+                <img src="../app/include/icons/apple-alt.svg" alt="apple-store-image"width="20" height="20">
+            </div>
+        </div>
+    </div>
+    <div class="middle1-bar">
+        <div class="patient-staff">
+            <div class="patients-count stats">
+                <img src="../app/include/icons/bed.svg" class="img" alt="Patients-Icon">
+                <div>
+                    <h4>3,256</h4>
+                    <p>Total Patients</p>
+                </div>
+            </div>
+            <div class="staff stats">
+                <img src="../app/include/icons/address-book.svg" class="img" alt="Patients-Icon">
+                <div>
+                    <h4>256</h4>
+                    <p>Available Staff</p>
+                </div>
+            </div>
+        </div>
+        <div id="columnchart_values"></div>
+        <div id="curve_chart"></div>
+    </div>
+    <div class="middle2-bar">
+        <div class="staff stats">
+            <img src="../app/include/icons/money-check-alt.svg" class="img" alt="Patients-Icon">
+            <div>
+                <h4>256</h4>
+                <p>Total Avg. Cost</p>
+            </div>
+        </div>
+        <div id="donutchart"></div>
+        <table>
+            <thead>Patients By Division</thead>
+            <tbody>
+                <th>
+                    <tr>
+                        <td>Divisions</td>
+                        <td>PT.</td>
+                    </tr>
+                    <tr>
+                        <td>Cardiology</td>
+                        <td>254</td>
+                    </tr>
+                    <tr>
+                        <td>Neurology</td>
+                        <td>143</td>
+                    </tr>
+                    <tr>
+                        <td>Surgery</td>
+                        <td>202</td>
+                    </tr>
+                </th>
+            </tbody>
+        </table>
+    </div>
+    <div class="right-bar">
+        <div class="stats-last">
+            <img src="../app/include/icons/ambulance.svg" class="img" alt="Patients-Icon">
+            <div>
+                <h4>256</h4>
+                <p>Available Staff</p>
+            </div>
+        </div>
+        <div id="donutchart2"></div>
+        <div id="curve_chart2"></div>
+    </div>
+</body>
+</html>
