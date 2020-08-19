@@ -6,38 +6,38 @@
     <title>Welcome | Health Care</title>
     <link rel="stylesheet" href="../app/include/css/index-style.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load("current", {packages:['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ["Element", "Density", { role: "style" } ],
-          ["Mar 2019", 8.94, "#b87333"],
-          ["Apr 2019", 10.49, "silver"],
-          ["May 2019", 19.30, "gold"],
-          ["June 2019", 21.45, "color: #e5e4e2"]
-        ]);
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawVisualization);
   
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-                         { calc: "stringify",
-                           sourceColumn: 1,
-                           type: "string",
-                           role: "annotation" },
-                         2]);
+        function drawVisualization() {
+          // Some raw data (not necessarily accurate)
+          var data = google.visualization.arrayToDataTable([
+            ['Month', 'Inpatient', 'Outpatient'],
+            ['Nov 2019',  165,      938],
+            ['Dec 2019',  135,      1120],
+            ['Jan 2020',  157,      1167],
+            ['Feb 2020',  139,      1110],
+            ['Mar 2020',  136,      691]
+          ]);
   
-        var options = {
-          title: "Outpatients Vs. Inpatients Trend",
-          width: 500,
-          height: 200,
-          bar: {groupWidth: "95%"},
-          legend: { position: "none" },
-        };
-        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-        chart.draw(view, options);
-    }
-    </script>
+          var options = {
+            title : 'Outpatients Vs. Inpatients Trend',
+            seriesType: 'bars',
+            series: {5: {type: 'line'}}, 
+            legend:{position:'bottom'},
+            vAxis:{
+                gridlines:{
+                    count:0
+                }
+            },
+            colors:['#7E33DE','65F1E9']
+            };
+  
+          var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+        }
+      </script>
     <script type="text/javascript">
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
@@ -56,7 +56,12 @@
           var options = {
             title: 'Time Admitted',
             curveType: 'function',
-            legend: { position: 'bottom' }
+            legend: { position: 'bottom' },
+            vAxis:{
+                 gridlines:{
+                    count:0  
+                 }
+             }
           };
   
           var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -64,27 +69,28 @@
           chart.draw(data, options);
         }
       </script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Inpatients', 'Outpatients'],
-          ['IP',     11],
-          ['OP',      2]
+          ['Inpatients', 'Outpatients',{role:"color"}],
+          ['IP',     11,'purple'],
+          ['OP',      2,'green']
         ]);
 
         var options = {
           title: 'Shown By Months',
-          pieHole: 0.4,
+          pieHole: 0.8,
+          colors:['#7E33DE','#65F1E9'],
+          pieSliceText:'none',
+          legend:{position:'bottom'}
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
         chart.draw(data, options);
       }
     </script>
-     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
      <script type="text/javascript">
        google.charts.load("current", {packages:["corechart"]});
        google.charts.setOnLoadCallback(drawChart);
@@ -97,31 +103,41 @@
  
          var options = {
            title: 'Patients By Gender',
-           pieHole: 0.4,
+           pieHole: 0.8,
+           colors:['#7E33DE','#65F1E9'],
+           pieSliceText:'none',
+           legend:{position:'bottom'}
          };
  
          var chart = new google.visualization.PieChart(document.getElementById('donutchart2'));
          chart.draw(data, options);
        }
      </script>
-       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
        <script type="text/javascript">
          google.charts.load('current', {'packages':['corechart']});
          google.charts.setOnLoadCallback(drawChart);
    
          function drawChart() {
            var data = google.visualization.arrayToDataTable([
-             ['Year', 'Sales', 'Expenses'],
-             ['2004',  1000,      400],
-             ['2005',  1170,      460],
-             ['2006',  660,       1120],
-             ['2007',  1030,      540]
+             ['Patients', 'Nos'],
+             ['15',  15],
+             ['16',  25],
+             ['17',  50],
+             ['18',  30]
            ]);
    
            var options = {
-             title: 'Company Performance',
+             title: 'Patients this month',
              curveType: 'function',
-             legend: { position: 'bottom' }
+             legend: { position: 'bottom' },
+             backgroundColor:'#7E33DE',
+             vAxis:{
+                 gridlines:{
+                    count:0  
+                 },
+                 baselineColor:'none'
+             },
+             colors:['#000']
            };
    
            var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
@@ -166,7 +182,7 @@
                 <input type="radio" name="menu" id="map-btn"hidden>
             </div>
             <div>
-                <img src="../app/include/icons/doctors.svg" alt="doctors-icon">
+                <img src="../app/include/icons/hospital-alt.svg" alt="doctors-icon">
                 <label for="departments-btn">Departments</label>
                 <input type="radio" name="menu" id="departments-btn"hidden>
             </div>
@@ -212,7 +228,7 @@
                 </div>
             </div>
         </div>
-        <div id="columnchart_values"></div>
+        <div id="chart_div"></div>
         <div id="curve_chart"></div>
     </div>
     <div class="middle2-bar">

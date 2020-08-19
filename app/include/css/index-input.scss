@@ -19,6 +19,17 @@ $secondary-color:#65F1E9;
     align-items:center;
     justify-content: center;
 }
+@mixin box-shadow {
+    box-shadow:0px 0px 2px black;
+}
+@mixin hover-anime {
+    &:hover
+    {
+        background-color: $primary-color;
+        color:white;
+        border-radius: 10px;
+    }
+}
 body
 {
     display:grid;
@@ -90,6 +101,7 @@ body
             color:white;
             border-radius: 10px;
             cursor: pointer;
+            @include box-shadow();
         }
         .menu
         {
@@ -107,11 +119,15 @@ body
                     margin-right:5%;
                     width:20px;
                     height:20px;
+                    color:grey;
                 }
                 label
                 {
                     cursor: pointer;
+                    transition-duration: 0.25s;
+                    padding:1%;
                    // background-color: palevioletred;
+                   @include hover-anime();
                 }
             }
         }
@@ -129,6 +145,9 @@ body
             {
                 vertical-align: middle;
                 cursor: pointer;
+                transition-duration: 0.25s;
+                padding:1%;
+                @include hover-anime();
             }
         }
         .footer
@@ -167,6 +186,10 @@ body
                 border:1px solid $primary-color;
                 border-radius:10px;
                 padding:2%;
+                transition-duration: 0.25s;
+                cursor: pointer;
+                @include box-shadow();
+                @include hover-anime();
                 img
                 {
                     margin-right:15%;
@@ -200,6 +223,10 @@ body
             padding: 1%;
             height:15%;
             width:50%;
+            transition-duration: 0.25s;
+            cursor: pointer;
+            @include box-shadow();
+            @include hover-anime();
             img
             {
                 width:20px;
@@ -229,6 +256,10 @@ body
             padding: 1%;
             height:15%;
             width:50%;
+            transition-duration: 0.25s;
+            cursor: pointer;
+            @include box-shadow();
+            @include hover-anime();
             img
             {
                 width:20px;

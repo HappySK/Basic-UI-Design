@@ -65,7 +65,8 @@ body {
       background-color: #7E33DE;
       color: white;
       border-radius: 10px;
-      cursor: pointer; }
+      cursor: pointer;
+      box-shadow: 0px 0px 2px black; }
     body .left-bar .menu {
       display: flex;
       flex-direction: column;
@@ -77,9 +78,16 @@ body {
         body .left-bar .menu div img {
           margin-right: 5%;
           width: 20px;
-          height: 20px; }
+          height: 20px;
+          color: grey; }
         body .left-bar .menu div label {
-          cursor: pointer; }
+          cursor: pointer;
+          transition-duration: 0.25s;
+          padding: 1%; }
+          body .left-bar .menu div label:hover {
+            background-color: #7E33DE;
+            color: white;
+            border-radius: 10px; }
     body .left-bar .settings-btn {
       display: flex;
       width: 60%;
@@ -88,7 +96,13 @@ body {
         margin: 5%; }
       body .left-bar .settings-btn label {
         vertical-align: middle;
-        cursor: pointer; }
+        cursor: pointer;
+        transition-duration: 0.25s;
+        padding: 1%; }
+        body .left-bar .settings-btn label:hover {
+          background-color: #7E33DE;
+          color: white;
+          border-radius: 10px; }
     body .left-bar .footer {
       display: flex;
       flex-direction: column;
@@ -113,7 +127,14 @@ body {
         align-items: center;
         border: 1px solid #7E33DE;
         border-radius: 10px;
-        padding: 2%; }
+        padding: 2%;
+        transition-duration: 0.25s;
+        cursor: pointer;
+        box-shadow: 0px 0px 2px black; }
+        body .middle1-bar .patient-staff .stats:hover {
+          background-color: #7E33DE;
+          color: white;
+          border-radius: 10px; }
         body .middle1-bar .patient-staff .stats img {
           margin-right: 15%; }
     body .middle1-bar #curve_chart {
@@ -132,7 +153,14 @@ body {
       border-radius: 10px;
       padding: 1%;
       height: 15%;
-      width: 50%; }
+      width: 50%;
+      transition-duration: 0.25s;
+      cursor: pointer;
+      box-shadow: 0px 0px 2px black; }
+      body .middle2-bar .stats:hover {
+        background-color: #7E33DE;
+        color: white;
+        border-radius: 10px; }
       body .middle2-bar .stats img {
         width: 20px;
         height: 20px;
@@ -152,7 +180,14 @@ body {
       border-radius: 10px;
       padding: 1%;
       height: 15%;
-      width: 50%; }
+      width: 50%;
+      transition-duration: 0.25s;
+      cursor: pointer;
+      box-shadow: 0px 0px 2px black; }
+      body .right-bar .stats-last:hover {
+        background-color: #7E33DE;
+        color: white;
+        border-radius: 10px; }
       body .right-bar .stats-last img {
         width: 20px;
         height: 20px;
